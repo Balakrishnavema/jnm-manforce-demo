@@ -58,9 +58,9 @@ def stats():
     total = len(EMPLOYEES)
     available = len([e for e in EMPLOYEES if e['status'] == 'Available'])
     deployed = len([e for e in EMPLOYEES if e['status'] == 'Deployed'])
-    return {"total": total, "available": available, "deployed": deployed}
-
-
+    return {"total": total, "available": available, "deployed": @app.get("/")
+def home():
+    return {"message": "JNM Manforce API is running 🚀"}
 # === dummy_data.json ===
 # Example JSON array of employees
 # Save this content in dummy_data.json file
