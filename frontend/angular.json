@@ -7,22 +7,31 @@
       "root": "",
       "sourceRoot": "src",
       "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/jnm-manforce-web/browser",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "tsConfig": "tsconfig.json"
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "jnm-manforce-web:build"
-          }
-        }
+  "build": {
+    "builder": "@angular-devkit/build-angular:browser",
+    "options": {
+      "outputPath": "dist/jnm-manforce-web/browser",
+      "index": "src/index.html",
+      "main": "src/main.ts",
+      "tsConfig": "tsconfig.json"
+    },
+    "configurations": {
+      "production": {
+        "optimization": true,
+        "outputHashing": "all",
+        "sourceMap": false,
+        "extractCss": true,
+        "namedChunks": false,
+        "aot": true,
+        "buildOptimizer": true
       }
+    }
+  },
+  "serve": {
+    "builder": "@angular-devkit/build-angular:dev-server",
+    "options": {
+      "browserTarget": "jnm-manforce-web:build"
     }
   }
 }
+    
