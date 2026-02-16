@@ -1,4 +1,3 @@
-# === main.py ===
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
@@ -23,9 +22,11 @@ USERS = {"admin": "admin123"}
 with open("dummy_data.json", "r") as f:
     EMPLOYEES = json.load(f)
 
+
 class Token(BaseModel):
     access_token: str
     token_type: str
+
 
 @app.post("/login", response_model=Token)
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
@@ -35,8 +36,13 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
         raise HTTPException(status_code=400, detail="Invalid credentials")
     return {"access_token": "demo-token", "token_type": "bearer"}
 
+
 @app.get("/employees")
-def get_employees(sector: str | None = None, trade: str | None = None, designation: str | None = None):
+def get_employees(
+    sector: str | None = None,
+    trade: str | None = None,
+    designation: str | None = None
+):
     data = EMPLOYEES
     if sector:
         data = [d for d in data if d['sector'].lower() == sector.lower()]
@@ -46,6 +52,7 @@ def get_employees(sector: str | None = None, trade: str | None = None, designati
         data = [d for d in data if d['designation'].lower() == designation.lower()]
     return data
 
+
 @app.get("/employees/{emp_id}")
 def get_employee(emp_id: int):
     emp = next((e for e in EMPLOYEES if e['id'] == emp_id), None)
@@ -53,23 +60,16 @@ def get_employee(emp_id: int):
         raise HTTPException(status_code=404, detail="Employee not found")
     return emp
 
+
 @app.get("/stats")
 def stats():
     total = len(EMPLOYEES)
     available = len([e for e in EMPLOYEES if e['status'] == 'Available'])
     deployed = len([e for e in EMPLOYEES if e['status'] == 'Deployed'])
-    return {"total": total, "available": available, "deployed": @app.get("/")
+    return {"total": total, "available": available, "deployed": deployed}
+
+
+# ✅ Root endpoint for Render health check
+@app.get("/")
 def home():
     return {"message": "JNM Manforce API is running 🚀"}
-# === dummy_data.json ===
-# Example JSON array of employees
-# Save this content in dummy_data.json file
-# [
-#   {"id": 1, "name": "Ravi Kumar", "sector": "Oil & Gas", "trade": "E&I", "designation": "Technician", "education": "Diploma", "status": "Available", "phone": "+91-9876543210", "email": "ravi@example.com"},
-#   {"id": 2, "name": "Suresh Reddy", "sector": "Construction", "trade": "Civil", "designation": "Supervisor", "education": "B.Tech", "status": "Deployed", "phone": "+91-9123456789", "email": "suresh@example.com"}
-# ]
-
-# === requirements.txt ===
-# fastapi
-# uvicorn
-# python-multipart
