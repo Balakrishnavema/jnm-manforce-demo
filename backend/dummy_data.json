@@ -1,0 +1,12 @@
+[
+  {"id": 1, "name": "Ravi Kumar", "sector": "Oil & Gas", "trade": "E&I", "designation": "Technician", "education": "Diploma", "status": "Available", "phone": "+91-9876543210", "email": "ravi@example.com"},
+  {"id": 2, "name": "Suresh Reddy", "sector": "Construction", "trade": "Civil", "designation": "Supervisor", "education": "B.Tech", "status": "Deployed", "phone": "+91-9123456789", "email": "suresh@example.com"},
+  {"id": 3, "name": "Ramu Naidu", "sector": "Power", "trade": "Mechanical", "designation": "Operator", "education": "ITI", "status": "Available", "phone": "+91-9012345678", "email": "ramu@example.com"},
+  {"id": 4, "name": "Anil Kumar", "sector": "Pharma", "trade": "Maintenance", "designation": "Technician", "education": "Diploma", "status": "Deployed", "phone": "+91-9988776655", "email": "anil@example.com"},
+  {"id": 5, "name": "Rajesh Varma", "sector": "Hospital/Healthcare", "trade": "Electrical", "designation": "Technician", "education": "Diploma", "status": "Available", "phone": "+91-7766554433", "email": "rajesh@example.com"},
+  {"id": 6, "name": "Basha Khan", "sector": "Oil & Gas", "trade": "Welding", "designation": "Fitter", "education": "ITI", "status": "Available", "phone": "+91-7788996655", "email": "basha@example.com"},
+  {"id": 7, "name": "Venkat Reddy", "sector": "Construction", "trade": "Plumbing", "designation": "Helper", "education": "10th", "status": "Deployed", "phone": "+91-6655443322", "email": "venkat@example.com"},
+  {"id": 8, "name": "Sai Teja", "sector": "Power", "trade": "Instrumentation", "designation": "Assistant", "education": "Diploma", "status": "Available", "phone": "+91-8877665544", "email": "sai@example.com"},
+  {"id": 9, "name": "Gopi Krishna", "sector": "Automobile", "trade": "Mechanical", "designation": "Supervisor", "education": "B.Tech", "status": "Available", "phone": "+91-7766998855", "email": "gopi@example.com"},
+  {"id": 10, "name": "Naveen Chowdary", "sector": "Retail/Supermarket", "trade": "Sales", "designation": "Executive", "education": "MBA", "status": "Deployed", "phone": "+91-6655778899", "email": "naveen@example.com"}
+]
