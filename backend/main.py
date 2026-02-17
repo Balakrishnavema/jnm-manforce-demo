@@ -3,8 +3,19 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
 from pydantic import BaseModel
 import json
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+import os
 
 app = FastAPI(title="JNM Manforce API Demo")
+
+# Serve static files
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+@app.get("/favicon.ico")
+def favicon():
+    favicon_path = os.path.join("static", "favicon.ico")
+    return FileResponse(favicon_path)
 
 # Allow CORS for frontend
 app.add_middleware(
